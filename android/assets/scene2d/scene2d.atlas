@@ -1,0 +1,41 @@
+
+scene2d.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+key
+  rotate: false
+  xy: 2, 2
+  size: 37, 34
+  orig: 37, 34
+  offset: 0, 0
+  index: -1
+keyhole
+  rotate: false
+  xy: 804, 860
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+menu-background
+  rotate: false
+  xy: 2, 38
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+simple-background
+  rotate: false
+  xy: 2, 340
+  size: 800, 600
+  orig: 800, 600
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 204, 308
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
