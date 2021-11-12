@@ -1,9 +1,30 @@
 
-scene2d.png
+gameplay.png
 size: 1024, 1024
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
+cell-empty
+  rotate: false
+  xy: 804, 872
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+cell-o
+  rotate: false
+  xy: 204, 270
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+cell-x
+  rotate: false
+  xy: 804, 720
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
 key
   rotate: false
   xy: 2, 2
@@ -13,29 +34,22 @@ key
   index: -1
 keyhole
   rotate: false
-  xy: 804, 860
+  xy: 2, 38
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 menu-background
   rotate: false
-  xy: 2, 38
+  xy: 2, 120
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 simple-background
   rotate: false
-  xy: 2, 340
+  xy: 2, 422
   size: 800, 600
   orig: 800, 600
-  offset: 0, 0
-  index: -1
-star
-  rotate: false
-  xy: 204, 308
-  size: 30, 30
-  orig: 30, 30
   offset: 0, 0
   index: -1

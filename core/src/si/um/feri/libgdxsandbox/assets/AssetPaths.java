@@ -6,7 +6,7 @@ public class AssetPaths {
 
     public static final String UI_SKIN = "ui/uiskin.json";
 
-    public static final String SCENE2D = "scene2d/scene2d.atlas";
+    public static final String GAMEPLAY = "gameplay/gameplay.atlas";
 
     private AssetPaths() {
     }

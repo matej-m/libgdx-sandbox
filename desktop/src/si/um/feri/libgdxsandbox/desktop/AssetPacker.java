@@ -14,9 +14,9 @@ public class AssetPacker {
         settings.debug = DRAW_DEBUG_OUTLINE;
 
         TexturePacker.process(settings,
-                RAW_ASSETS_PATH + "/scene2d",   // the directory containing individual images to be packed
-                ASSETS_PATH + "/scene2d",   // the directory where the pack file will be written
-                "scene2d"   // the name of the pack file / atlas name
+                RAW_ASSETS_PATH + "/gameplay",   // the directory containing individual images to be packed
+                ASSETS_PATH + "/gameplay",   // the directory where the pack file will be written
+                "gameplay"   // the name of the pack file / atlas name
         );
 
         TexturePacker.process(settings,

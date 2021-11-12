@@ -1,4 +1,4 @@
-package si.um.feri.libgdxsandbox.scene2d.screen;
+package si.um.feri.libgdxsandbox.tictactoe.screen;
 
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
@@ -14,24 +14,24 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import si.um.feri.libgdxsandbox.assets.AssetDescriptors;
 import si.um.feri.libgdxsandbox.assets.RegionNames;
-import si.um.feri.libgdxsandbox.scene2d.Scene2dExample;
-import si.um.feri.libgdxsandbox.scene2d.config.GameConfig;
+import si.um.feri.libgdxsandbox.tictactoe.TicTacToeGame;
+import si.um.feri.libgdxsandbox.tictactoe.config.GameConfig;
 
 public class IntroScreen extends ScreenAdapter {
 
     public static final float INTRO_DURATION_IN_SEC = 3f;   // duration of the (intro) animation
 
-    private Viewport viewport;
-
-    private final Scene2dExample game;
+    private final TicTacToeGame game;
     private final AssetManager assetManager;
-    private TextureAtlas scene2dAtlas;
 
-    private float duration;
+    private Viewport viewport;
+    private TextureAtlas gameplayAtlas;
+
+    private float duration = 0f;
 
     private Stage stage;
 
-    public IntroScreen(Scene2dExample game) {
+    public IntroScreen(TicTacToeGame game) {
         this.game = game;
         assetManager = game.getAssetManager();
     }
@@ -41,14 +41,13 @@ public class IntroScreen extends ScreenAdapter {
         viewport = new FitViewport(GameConfig.HUD_WIDTH, GameConfig.HUD_HEIGHT);
         stage = new Stage(viewport, game.getBatch());
 
-        duration = 0f;
-
+        // load assets
         assetManager.load(AssetDescriptors.UI_FONT);
         assetManager.load(AssetDescriptors.UI_SKIN);
-        assetManager.load(AssetDescriptors.SCENE2D);
+        assetManager.load(AssetDescriptors.GAMEPLAY);
         assetManager.finishLoading();   // blocks until all assets are loaded
 
-        scene2dAtlas = assetManager.get(AssetDescriptors.SCENE2D);
+        gameplayAtlas = assetManager.get(AssetDescriptors.GAMEPLAY);
 
         stage.addActor(createKeyhole());
         stage.addActor(createAnimation());
@@ -85,7 +84,7 @@ public class IntroScreen extends ScreenAdapter {
     }
 
     private Actor createKeyhole() {
-        Image keyhole = new Image(scene2dAtlas.findRegion(RegionNames.KEYHOLE));
+        Image keyhole = new Image(gameplayAtlas.findRegion(RegionNames.KEYHOLE));
         // position the image to the center of the window
         keyhole.setPosition(viewport.getWorldWidth() / 2f - keyhole.getWidth() / 2f,
                 viewport.getWorldHeight() / 2f - keyhole.getHeight() / 2f);
@@ -93,7 +92,7 @@ public class IntroScreen extends ScreenAdapter {
     }
 
     private Actor createAnimation() {
-        Image key = new Image(scene2dAtlas.findRegion(RegionNames.KEY));
+        Image key = new Image(gameplayAtlas.findRegion(RegionNames.KEY));
 
         // set positions x, y to center the image to the center of the window
         float posX = (viewport.getWorldWidth() / 2f) - key.getWidth() / 2f;

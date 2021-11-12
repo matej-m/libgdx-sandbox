@@ -1,4 +1,4 @@
-package si.um.feri.libgdxsandbox.scene2d.screen;
+package si.um.feri.libgdxsandbox.tictactoe.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -19,20 +19,21 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import si.um.feri.libgdxsandbox.assets.AssetDescriptors;
 import si.um.feri.libgdxsandbox.assets.RegionNames;
-import si.um.feri.libgdxsandbox.scene2d.Scene2dExample;
-import si.um.feri.libgdxsandbox.scene2d.config.GameConfig;
+import si.um.feri.libgdxsandbox.tictactoe.TicTacToeGame;
+import si.um.feri.libgdxsandbox.tictactoe.config.GameConfig;
 
 public class MenuScreen extends ScreenAdapter {
 
-    private final Scene2dExample game;
+    private final TicTacToeGame game;
     private final AssetManager assetManager;
 
     private Viewport viewport;
     private Stage stage;
-    private Skin skin;
-    private TextureAtlas scene2dAtlas;
 
-    public MenuScreen(Scene2dExample game) {
+    private Skin skin;
+    private TextureAtlas gameplayAtlas;
+
+    public MenuScreen(TicTacToeGame game) {
         this.game = game;
         assetManager = game.getAssetManager();
     }
@@ -43,10 +44,10 @@ public class MenuScreen extends ScreenAdapter {
         stage = new Stage(viewport, game.getBatch());
 
         skin = assetManager.get(AssetDescriptors.UI_SKIN);
-        scene2dAtlas = assetManager.get(AssetDescriptors.SCENE2D);
+        gameplayAtlas = assetManager.get(AssetDescriptors.GAMEPLAY);
 
-        Gdx.input.setInputProcessor(stage);
         stage.addActor(createUi());
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
@@ -76,22 +77,38 @@ public class MenuScreen extends ScreenAdapter {
         Table table = new Table();
         table.defaults().pad(20);
 
-        TextureRegion backgroundRegion = scene2dAtlas.findRegion(RegionNames.BACKGROUND);
+        TextureRegion backgroundRegion = gameplayAtlas.findRegion(RegionNames.BACKGROUND);
         table.setBackground(new TextureRegionDrawable(backgroundRegion));
 
-        TextButton introButton = new TextButton("Intro screen", skin);
-        introButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new IntroScreen(game));
-            }
-        });
+        // TextButton introButton = new TextButton("Intro screen", skin);
+        // introButton.addListener(new ClickListener() {
+        //     @Override
+        //     public void clicked(InputEvent event, float x, float y) {
+        //         game.setScreen(new IntroScreen(game));
+        //     }
+        // });
 
         TextButton playButton = new TextButton("Play", skin);
         playButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new GameScreen(game));
+            }
+        });
+
+        TextButton leaderboardButton = new TextButton("Leaderboard", skin);
+        leaderboardButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                // TODO
+            }
+        });
+
+        TextButton settingsButton = new TextButton("Settings", skin);
+        settingsButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new SettingsScreen(game));
             }
         });
 
@@ -106,11 +123,13 @@ public class MenuScreen extends ScreenAdapter {
         Table buttonTable = new Table();
         buttonTable.defaults().padLeft(30).padRight(30);
 
-        TextureRegion menuBackgroundRegion = scene2dAtlas.findRegion(RegionNames.MENU_BACKGOUND);
+        TextureRegion menuBackgroundRegion = gameplayAtlas.findRegion(RegionNames.MENU_BACKGROUND);
         buttonTable.setBackground(new TextureRegionDrawable(menuBackgroundRegion));
 
-        buttonTable.add(introButton).padBottom(15).expandX().fillX().row();
-        buttonTable.add(playButton).padBottom(15).fillX().row();
+        // buttonTable.add(introButton).padBottom(15).expandX().fillX().row();
+        buttonTable.add(playButton).padBottom(15).expandX().fill().row();
+        buttonTable.add(leaderboardButton).padBottom(15).fillX().row();
+        buttonTable.add(settingsButton).padBottom(15).fillX().row();
         buttonTable.add(quitButton).fillX();
 
         buttonTable.center();
