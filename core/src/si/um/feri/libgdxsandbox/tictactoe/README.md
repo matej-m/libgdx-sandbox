@@ -1,21 +1,21 @@
-# Scene2d example
+# Tic Tac Toe game
 
-Scene2d example extends `Game` class instead of `ApplicationAdapter`. In the next sections, we will briefly explain why
-we are using the `Game` class and what are `AssetManager`, `TextureAtlas`, and `Skin`.
+The [TicTacToeGame](TicTacToeGame.java) class extends the `Game` class instead of `ApplicationAdapter`. In the following sections, we will briefly
+explain why we are using the `Game` class, and what are `AssetManager`, `TextureAtlas`, and `Skin`.
 
 ## Scene2d
 
-In our example, we use [Stage](https://github.com/libgdx/libgdx/wiki/Scene2d#stage) together with various
+In our game, we use [Stage](https://github.com/libgdx/libgdx/wiki/Scene2d#stage) together with various
 [Widgets](https://github.com/libgdx/libgdx/wiki/Scene2d#stage). In [IntroScreen](screen/IntroScreen.java)
 class, we use the [Actions](https://github.com/libgdx/libgdx/wiki/Scene2d#actions) class to animate the image.
 
-You can read more about Actors that we used in our example on links that we provided. Things are nicely and briefly
+You can read more about Actors that we used in our game on links that we provided. Things are nicely and briefly
 explained along with examples.
 
 ## Game, ScreenAdapter
 
 Usually, when you do not need more screens in your game, you extend your class from the `ApplicationAdapter` class. In
-this example, we use more screens so we had to extend our class from the `Game` class. The `Game` class has two extra
+this game, we use more screens so we had to extend our class from the `Game` class. The `Game` class has two extra
 methods `setScreen(Screen)` and `getScreen()` whose are used to work with screens in the game.
 
 A class that represents the screen has to extend the `ScreenAdapter` class. It has `show()` method instead of `create()`
@@ -29,7 +29,7 @@ The `TextureAtlas` is a text file that describes images packed on a page or big 
 is generated with [TexturePacker](../../../../../../../README.md#texturepacker).
 
 Example of how you can use images from `TextureAtlas`. The Example below assumes that you use `AssetManager` for assets
-along with AssetDescriptors.
+along with `AssetDescriptors`.
 
 ```
 TextureAtlas textureAtlas;

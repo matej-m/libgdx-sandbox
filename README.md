@@ -27,7 +27,7 @@ Each example consists of files with code and a README file. README contains an e
 
 * [2D Particle effects](core/src/si/um/feri/libgdxsandbox/particles)
 
-* [Scene2d, Game, ScreenAdapter, TextureAtlas, Skin, AssetManager](core/src/si/um/feri/libgdxsandbox/scene2d)
+* [Tic Tac Toe game (Scene2d, Game, ScreenAdapter, TextureAtlas, Skin, AssetManager)](core/src/si/um/feri/libgdxsandbox/tictactoe)
 
 #### How to run an example:
 
