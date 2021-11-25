@@ -29,6 +29,8 @@ Each example consists of files with code and a README file. README contains an e
 
 * [Tic Tac Toe game (Scene2d, Game, ScreenAdapter, TextureAtlas, Skin, AssetManager)](core/src/si/um/feri/libgdxsandbox/tictactoe)
 
+* [Ashley](core/src/si/um/feri/libgdxsandbox/ashley)
+
 #### How to run an example:
 
 1. Right-click on the selected DesktopLauncher class.
